@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISRO Enterprise Services — SIH26171 Testbed Environment</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header with Government / ISRO branding -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="isro-logo-mark">
+        <svg viewBox="0 0 100 100" class="sat-icon">
+          <circle cx="50" cy="50" r="44" fill="#0d2b45" stroke="#f26419" stroke-width="3"/>
+          <ellipse cx="50" cy="50" rx="36" ry="14" fill="none" stroke="#f6ae2d" stroke-width="2" transform="rotate(-30 50 50)"/>
+          <circle cx="50" cy="50" r="8" fill="#f26419"/>
+          <path d="M 50 15 L 50 35 M 50 65 L 50 85" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="gov-title">भारतीय अंतरिक्ष अनुसंधान संगठन | Government of India</div>
+        <div class="portal-main-title">Indian Space Research Organisation (ISRO)</div>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="badge badge-confidential">RESTRICTED ENVIRONMENT</span>
+      <span class="badge badge-ps">SIH26171 BENCHMARK TARGET</span>
+    </div>
+  </header>
+
+  <!-- Portal Switcher Bar -->
+  <div class="portal-bar">
+    <div class="portal-tabs">
+      <button id="tab-eproc" class="portal-tab active" onclick="switchPortal('eproc')">
+        <span class="tab-icon">📑</span>
+        <span>e-Procurement Portal (eproc.isro.gov.in)</span>
+      </button>
+      <button id="tab-hr" class="portal-tab" onclick="switchPortal('hr')">
+        <span class="tab-icon">👥</span>
+        <span>Internal HR & Deputation Portal</span>
+      </button>
+      <button id="tab-mission" class="portal-tab" onclick="switchPortal('mission')">
+        <span class="tab-icon">🛰️</span>
+        <span>ISTRAC Mission Operations (istrac.isro.gov.in)</span>
+      </button>
+    </div>
+    <div class="scenario-actions">
+      <button class="btn btn-secondary" onclick="loadSampleScenario()">
+        ⚡ Load Realistic PII Scenario
+      </button>
+      <button class="btn btn-outline" onclick="resetPortalForm()">
+        ↺ Reset Form
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Work Area -->
+  <main class="main-container">
+    
+    <!-- Portal A: ISRO e-Procurement Portal -->
+    <section id="portal-eproc" class="portal-view active">
+      <div class="portal-header-card">
+        <div class="tender-title-row">
+          <div>
+            <span class="tender-code">TENDER REF: ISRO/VSSC/PT/2026/089</span>
+            <h2>Commercial Tender Bid Submission — Cryogenic Stage Sub-Assembly</h2>
+          </div>
+          <div class="tender-status-badge">Phase: Financial Evaluation (Pre-Award)</div>
+        </div>
+        <div class="warning-callout">
+          <strong>⚠️ STATUTORY WARNING:</strong> Prices, PAN, and digital certificate details quoted below are tender-confidential under the Indian Public Procurement Act. Transmission of unredacted commercial quotes or banking data to third-party services is strictly prohibited.
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <!-- Vendor Identification Section -->
+        <div class="card">
+          <h3 class="card-title">1. Bidder & Commercial Registration Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vendor-name">Authorized Bidder Name</label>
+              <input type="text" id="vendor-name" placeholder="Full legal name" value="Dr. Arvind S. Swaminathan">
+            </div>
+            <div class="form-group">
+              <label for="vendor-email">Authorized Corporate Email</label>
+              <input type="email" id="vendor-email" placeholder="official@vendor.co.in" value="arvind.swaminathan@aerocore-tech.in">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vendor-phone">Registered Contact Mobile</label>
+              <input type="tel" id="vendor-phone" placeholder="10-digit mobile" value="+91 98451 23456">
+            </div>
+            <div class="form-group">
+              <label for="vendor-pan">Vendor Permanent Account Number (PAN)</label>
+              <input type="text" id="vendor-pan" placeholder="e.g. ABCDE1234F" value="AAACA7890B" class="mono-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vendor-gstin">GSTIN Identification</label>
+              <input type="text" id="vendor-gstin" placeholder="15-character GSTIN" value="29AAACA7890B1Z5" class="mono-input">
+            </div>
+            <div class="form-group">
+              <label for="vendor-bank-ifsc">Escrow Bank IFSC Code</label>
+              <input type="text" id="vendor-bank-ifsc" placeholder="e.g. SBIN0001234" value="SBIN0001040" class="mono-input">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vendor-bank-account">Vendor Commercial Settlement Account No.</label>
+            <input type="text" id="vendor-bank-account" placeholder="Bank Account Number" value="98765432109876" class="mono-input">
+          </div>
+        </div>
+
+        <!-- Tender Pricing Quotation (Confidential Figures) -->
+        <div class="card">
+          <h3 class="card-title">2. Tender Quotation Schedule (Confidential Bids)</h3>
+          <table class="table-styled">
+            <thead>
+              <tr>
+                <th>Item #</th>
+                <th>Component Specification</th>
+                <th>Qty</th>
+                <th>Unit Bid (INR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Titanium Alloy Cryo-Chamber Flange (Grade 5)</td>
+                <td>12</td>
+                <td><input type="text" class="table-input" id="quote-item-1" value="₹ 4,850,000.00"></td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>Semi-Cryogenic Turbopump Impeller Casting</td>
+                <td>4</td>
+                <td><input type="text" class="table-input" id="quote-item-2" value="₹ 12,400,000.00"></td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>High-Pressure Solenoid Actuator Assembly</td>
+                <td>24</td>
+                <td><input type="text" class="table-input" id="quote-item-3" value="₹ 1,875,000.00"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" style="text-align: right; font-weight: 700;">TOTAL FINANCIAL BID:</td>
+                <td><input type="text" class="table-input mono-input font-bold" id="quote-total" value="₹ 152,800,000.00"></td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <!-- Digital Signature Certificate Canvas Area -->
+          <div class="dsc-box mt-4">
+            <div class="dsc-header">
+              <span class="font-bold">Digital Signature Certificate (DSC) & Signature Pad</span>
+              <span class="badge badge-warning">Visual Artifact: Canvas Drawn</span>
+            </div>
+            <p class="text-muted text-sm">Sign in the secure box below. Pure DOM scrapers cannot read canvas pixels; an on-device CV layer must recognize and redact this area.</p>
+            <div class="canvas-wrapper">
+              <canvas id="signature-canvas" width="460" height="120"></canvas>
+              <div class="canvas-tools">
+                <button type="button" class="btn btn-xs" onclick="clearSignatureCanvas()">Clear Signature</button>
+                <button type="button" class="btn btn-xs btn-outline" onclick="drawPresetSignature()">Preset Signature</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="action-footer card">
+        <div class="action-info">
+          <strong>Review & Dispatch:</strong> This submission triggers statutory evaluation. Submitting without client-side PII sanitization violates confidentiality.
+        </div>
+        <div class="action-btns">
+          <button type="button" class="btn btn-outline" id="btn-save-draft">Save Draft</button>
+          <button type="button" class="btn btn-primary" id="btn-submit-tender">Submit Official Tender Bid</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal B: ISRO HR & Deputation Portal -->
+    <section id="portal-hr" class="portal-view">
+      <div class="portal-header-card">
+        <div class="tender-title-row">
+          <div>
+            <span class="tender-code">RECORD ID: ISRO/ISAC/DEP/2026/4102</span>
+            <h2>Scientist / Engineer Foreign Deputation & Travel Clearance</h2>
+          </div>
+          <div class="tender-status-badge">Stage: Vigilance & Personal Data Verification</div>
+        </div>
+        <div class="warning-callout">
+          <strong>🔒 STRICT PRIVACY NOTICE:</strong> Contains government service personnel records, national identity identifiers (Aadhaar/Passport), and medical clearances.
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="card">
+          <h3 class="card-title">1. Officer Personal Identification</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="emp-name">Employee Full Name</label>
+              <input type="text" id="emp-name" value="Sunita R. Namboodiri">
+            </div>
+            <div class="form-group">
+              <label for="emp-code">Service Personnel Number (SPN)</label>
+              <input type="text" id="emp-code" value="ISRO-SCI-SF-4891" class="mono-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="emp-designation">Designation & Center</label>
+              <input type="text" id="emp-designation" value="Scientist / Engineer 'SF', URSC Bengaluru">
+            </div>
+            <div class="form-group">
+              <label for="emp-email">Official NIC Email</label>
+              <input type="email" id="emp-email" value="sunita.namboodiri@isro.gov.in">
+            </div>
+          </div>
+          <div class="form-row">
+            <!-- Aadhaar with Checksum Test Vectors -->
+            <div class="form-group">
+              <label for="emp-aadhaar">
+                Aadhaar National ID (12 Digits)
+                <span class="help-hint" title="Verhoeff validated">✓ Verhoeff Gated</span>
+              </label>
+              <!-- Test Aadhaar with valid Verhoeff checksum: 999999990019 -->
+              <input type="text" id="emp-aadhaar" value="9999 9999 0019" class="mono-input font-bold">
+              <small class="text-muted">Checksum verified: 999999990019 (Valid Verhoeff checksum)</small>
+            </div>
+            <div class="form-group">
+              <label for="emp-passport">Diplomatic / Official Passport No.</label>
+              <input type="text" id="emp-passport" value="Z3489127" class="mono-input">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">2. Mission Profile & Biometric Credential</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mission-destination">Host Space Agency & Conference</label>
+              <input type="text" id="mission-destination" value="ESA / CNES Lunar Surface Working Group (Toulouse, France)">
+            </div>
+            <div class="form-group">
+              <label for="mission-dates">Deputation Duration</label>
+              <input type="text" id="mission-dates" value="14 Oct 2026 – 28 Oct 2026">
+            </div>
+          </div>
+
+          <!-- Avatar Image & Visual Credential (for Vision Model / Face Blur testing) -->
+          <div class="avatar-card mt-3">
+            <div class="avatar-col">
+              <div class="avatar-frame">
+                <canvas id="avatar-canvas" width="130" height="130"></canvas>
+              </div>
+              <span class="badge badge-warning text-xs mt-2">Visual Face Model Target</span>
+            </div>
+            <div class="avatar-details">
+              <h4>Official Badge Photo & Medical Fitness Clearance</h4>
+              <p class="text-muted text-sm">Contains visual biometric facial feature data. The on-device vision model must detect this face bbox and apply client-side Gaussian blur before any screenshot transmission.</p>
+              <div class="credential-meta">
+                <span>Blood Group: <strong>B+</strong></span>
+                <span>Security Clearance: <strong>Top Secret / Cosmic (Level 4)</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="action-footer card">
+        <div class="action-info">
+          <strong>Clearance Request:</strong> Dispatch request to ISRO Security & Vigilance Directorate.
+        </div>
+        <div class="action-btns">
+          <button type="button" class="btn btn-outline">Save Record</button>
+          <button type="button" class="btn btn-primary" id="btn-request-deputation">Submit Deputation File</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal C: ISRO ISTRAC Mission Operations & Classified Telemetry Console -->
+    <section id="portal-mission" class="portal-view">
+      <div class="portal-header-card mission-theme">
+        <div class="tender-title-row">
+          <div>
+            <span class="tender-code">MISSION REF: ISRO/ISTRAC/EOS-08/ORBIT-742</span>
+            <h2>Satellite Flight Operations & Classified Telemetry Console</h2>
+          </div>
+          <div class="tender-status-badge mission-badge">Status: Live Downlink / Orbit-742</div>
+        </div>
+        <div class="warning-callout">
+          <strong>⚠️ CLASSIFIED DEFENSE TELEMETRY:</strong> Optical coordinate streams, high-resolution sensor metadata, and orbital trajectory authorization keys are classified under the Official Secrets Act. Transmission of unredacted orbital coordinates, transponder keys, or biometric clearance data is strictly prohibited.
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <!-- Visual Target 1: Multispectral Sensor Stream & Multi-Cluster Text Annotations -->
+        <div class="card span-2">
+          <div class="card-header-flex">
+            <h3 class="card-title">1. Classified Satellite Payload & Multi-Spectral Imagery Preview</h3>
+            <span class="badge badge-warning text-xs">DBNet Text-Region Target (Multi-Cluster CCL)</span>
+          </div>
+          <p class="text-muted text-sm mb-2">Simulates live optical downlink with sensitive coordinate stamps and mission callsigns rendered into canvas pixels. SentryAgent's DBNet Connected-Component Labeling must extract separate, tight bounding boxes for each text cluster, preserving intermediate satellite imagery.</p>
+          <div class="satellite-canvas-container">
+            <canvas id="satellite-telemetry-canvas" width="600" height="220"></canvas>
+          </div>
+          <div class="canvas-controls mt-2">
+            <button type="button" class="btn btn-outline text-xs" onclick="renderSatelliteCanvas()">↺ Refresh Orbital Sensor Stream</button>
+            <span class="text-xs text-muted ml-2">Sensor: Cartosat-3 HR-Optical | Spectral Bands: 4 (PAN + VNIR)</span>
+          </div>
+        </div>
+
+        <!-- Section 2: Mission Director Flight Clearance & Biometrics -->
+        <div class="card">
+          <h3 class="card-title">2. Mission Director Identity & Biometrics</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mission-director-name">Flight Director Name</label>
+              <input type="text" id="mission-director-name" value="Dr. K. S. Radhakrishnan">
+            </div>
+            <div class="form-group">
+              <label for="mission-director-pan">Government Officer PAN</label>
+              <input type="text" id="mission-director-pan" value="AAAGP1234M" class="mono-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mission-director-aadhaar">Officer Aadhaar Number (Verhoeff Checksum)</label>
+              <input type="text" id="mission-director-aadhaar" value="9999 9999 0019" class="mono-input">
+            </div>
+          </div>
+
+          <!-- Mission Director Biometric Canvas for BlazeFace -->
+          <div class="avatar-card mt-3">
+            <div class="avatar-col">
+              <div class="avatar-frame">
+                <canvas id="director-avatar-canvas" width="130" height="130"></canvas>
+              </div>
+              <span class="badge badge-warning text-xs mt-2">BlazeFace Biometric Target</span>
+            </div>
+            <div class="avatar-details">
+              <h4>Flight Authorization Biometric Photo</h4>
+              <p class="text-muted text-sm">On-device BlazeFace ONNX detects facial features with verified [xmin, ymin, xmax, ymax] coordinates and burns opaque pixel redactions locally.</p>
+              <div class="credential-meta">
+                <span>Clearance Level: <strong>Cosmic Top Secret</strong></span>
+                <span>Duty Station: <strong>MOX-ISTRAC, Bengaluru</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Restricted Encryption Keys & Uplink Telemetry -->
+        <div class="card">
+          <h3 class="card-title">3. Classified Uplink Frequency & Transponder Token</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="transponder-key">Ground Station Transponder Token (Luhn-Valid Key)</label>
+              <input type="text" id="transponder-key" value="4532 0151 1283 0366" class="mono-input">
+            </div>
+            <div class="form-group">
+              <label for="uplink-frequency">Uplink Frequency & Polarization</label>
+              <input type="text" id="uplink-frequency" value="8450.25 MHz / RHCP">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mission-budget">Classified Mission Budget Allotment</label>
+              <input type="text" id="mission-budget" value="₹ 620,00,00,000">
+            </div>
+            <div class="form-group">
+              <label for="station-contact">ISTRAC Master Control Contact</label>
+              <input type="tel" id="station-contact" value="+91 80 2839 5000">
+            </div>
+          </div>
+          <div class="form-group mt-2">
+            <label for="mission-notes">Confidential Flight Operations Note</label>
+            <input type="text" id="mission-notes" value="Trajectory fine-tuning for apogee 480km Sun-Synchronous Polar Orbit scheduled at 18:45 UTC.">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer with High-Stakes Risk Tiering -->
+      <div class="action-footer card">
+        <div class="action-info">
+          <strong>Flight Operations Dispatch:</strong> Authorizing satellite apogee burn or telemetry stream.
+        </div>
+        <div class="action-btns">
+          <button type="button" class="btn btn-outline" id="btn-sync-telemetry" data-risk-tier="TIER_1">Sync Orbit Telemetry</button>
+          <button type="button" class="btn btn-danger" id="btn-authorize-burn" data-risk-tier="TIER_4">⚠️ Authorize Orbital Burn (Tier 4)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Side-by-Side Sentry Inspection Inspector (Live Feedback) -->
+    <aside class="telemetry-drawer">
+      <div class="telemetry-header">
+        <div class="flex-align">
+          <span class="pulse-indicator"></span>
+          <span class="font-bold text-sm">SENTRY PRIVACY PROVING GROUND</span>
+        </div>
+        <span class="badge badge-outline" id="active-portal-badge">e-Procurement</span>
+      </div>
+      <div class="telemetry-body">
+        <div class="telemetry-stats">
+          <div class="stat-box">
+            <div class="stat-number" id="pii-field-count">7</div>
+            <div class="stat-label">Sensitive DOM Fields</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" id="visual-target-count">2</div>
+            <div class="stat-label">Visual Targets (Canvas/Img)</div>
+          </div>
+        </div>
+        <div class="telemetry-notice">
+          <strong>How to test SentryAgent:</strong>
+          <ol>
+            <li>Load the unpacked extension in Chrome from <code>extension/dist</code>.</li>
+            <li>Open the SentryAgent popup and click <strong>"Scan & Protect Tab"</strong>.</li>
+            <li>Watch all sensitive fields transform into <code>&lt;PERSON_1&gt;</code>, <code>&lt;AADHAAR_ID_1&gt;</code>, <code>&lt;CONFIDENTIAL_VAL_1&gt;</code> directly in-DOM.</li>
+            <li>Click <strong>"Submit Official Tender Bid"</strong> to watch the local Inversion Vault safely rehydrate the real data immediately before execution.</li>
+          </ol>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

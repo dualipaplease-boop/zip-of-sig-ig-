@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SentryAgent Console</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-brand">
+        <div class="shield-icon">🛡️</div>
+        <div>
+          <div class="app-name">SentryAgent</div>
+          <div class="app-sub">Dual-Track Vision & Risk Gate</div>
+        </div>
+      </div>
+      <div class="egress-pill" id="egress-indicator">
+        <span class="dot"></span> ZERO EGRESS
+      </div>
+    </header>
+
+    <!-- Status Overview -->
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-label">Perimeter Status:</span>
+        <span class="status-val active" id="perimeter-status">Standby</span>
+      </div>
+      <div class="status-row" style="margin-bottom: 6px;">
+        <span class="status-label">Vision Engine:</span>
+        <span class="status-val" id="vision-status" style="color: #38bdf8; font-size: 10px;">Checking page…</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-val" id="metric-redacted">0</div>
+          <div class="metric-label">Redacted Fields</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val" id="metric-vault">0</div>
+          <div class="metric-label">Vault Tokens</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val text-success">SHA-256</div>
+          <div class="metric-label">Wire Sealed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Control Buttons -->
+    <div class="actions-section">
+      <button class="btn btn-autonomous" id="btn-autonomous">
+        <span class="btn-icon">🤖</span> Run End-to-End Agent Loop
+      </button>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <button class="btn btn-primary" id="btn-scan">
+          <span class="btn-icon">⚡</span> Scan & Sanitize
+        </button>
+        <button class="btn btn-secondary" id="btn-restore" disabled>
+          <span class="btn-icon">↺</span> Restore
+        </button>
+      </div>
+      <button class="btn btn-tertiary" id="btn-multihop" title="Background-service-worker driven multi-hop session. Survives page navigations; every step still passes the on-page Local Risk Gate.">
+        <span class="btn-icon">🛰️</span> Start Multi-Hop Session (goal…)
+      </button>
+    </div>
+
+    <!-- Local Inversion Vault Inspector -->
+    <div class="vault-section">
+      <div class="vault-header">
+        <span class="section-title">Local Inversion Vault</span>
+        <span class="badge" id="vault-count-badge">0 Active</span>
+      </div>
+      <div class="vault-list" id="vault-list">
+        <div class="vault-empty">Click "Run End-to-End Agent Loop" to sanitize, seal wire payload, and execute via Local Risk Gate.</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>Verhoeff • Luhn • Risk Gate</span>
+      <span class="version-tag">v2.0 (Full System)</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.ts"></script>
+</body>
+</html>

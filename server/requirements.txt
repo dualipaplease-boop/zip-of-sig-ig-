@@ -1,0 +1,15 @@
+# SentryAgent reasoning server dependencies.
+#
+# The server (app.py) is implemented exclusively with the Python standard
+# library (http.server, json, hashlib, urllib). There are NO third-party
+# runtime dependencies.
+#
+# This file is intentionally dependency-free so that
+# `pip install -r server/requirements.txt` succeeds in a clean virtualenv
+# and signals that no packages are required.
+#
+# Note: an earlier version of this file listed fastapi/uvicorn/pydantic;
+# the implementation never used them (it uses stdlib http.server). The
+# stale entries were removed in v2.6.0. Optional model-probe tooling
+# (onnxruntime, onnx, pillow) is dev-only and NOT required to run the
+# server; see tools/verify_onnx_models.py.
