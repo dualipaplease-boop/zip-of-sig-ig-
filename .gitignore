@@ -1,0 +1,145 @@
+# ==========================================
+# Comprehensive .gitignore for SIH Project
+# ==========================================
+
+# ------------------------------------------
+# Operating System & Filesystem Artifacts
+# ------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ------------------------------------------
+# Editor & IDE Files
+# ------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.fleet/
+.cursor/
+
+# ------------------------------------------
+# Environment Variables & Secrets
+# ------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.cert
+*.crt
+
+# ------------------------------------------
+# Node.js & Vite Extension (extension/ & testbed/)
+# ------------------------------------------
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# Vite / Build outputs
+dist/
+dist-ssr/
+*.local
+out/
+build/
+*.tsbuildinfo
+.vite/
+
+# Chrome Extension / WebExtension artifacts
+*.crx
+*.xpi
+extension/dist/
+
+# ------------------------------------------
+# Python Server (server/)
+# ------------------------------------------
+# Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Packaging & Distribution
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Pytest / Coverage / Linters
+.cache
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.mypy_cache/
+.pytype/
+.pyright/
+.ruff_cache/
+
+# ------------------------------------------
+# Testbed & Automated Test Artifacts
+# ------------------------------------------
+testbed/evidence/*
+!testbed/evidence/.gitkeep
+testbed/reports/
+test-results/
+playwright-report/
+blob-report/
+*.log
+
+# ------------------------------------------
+# Reference / Benchmark Repositories (repo/)
+# (Contains 71 cloned benchmark repositories with their own .git directories)
+# ------------------------------------------
+repo/
+
+# ------------------------------------------
+# Large Media / Video Recordings (Optional / Results)
+# Uncomment if test recordings (*.webp, *.webm, *.mp4) shouldn't be tracked:
+# ------------------------------------------
+# result/*.webp
+# result/*.webm
+# result/*.mp4
